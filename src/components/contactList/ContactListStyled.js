@@ -6,14 +6,22 @@ export const ContactListStyled = styled.ul`
   .wrapper {
     display: flex;
     justify-content: space-between;
+    align-items: center;
   }
 
   .text {
-    margin: 5px 0;
+    margin: 10px;
   }
 
   button {
     height: 25px;
     margin-right: 20px;
+    padding: 0;
+    width: 60px;
+    height: 30px;
+    
+    &:hover .text {
+      color: red;
+    }
   }
 `;

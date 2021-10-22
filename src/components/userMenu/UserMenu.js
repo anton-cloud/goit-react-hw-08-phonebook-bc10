@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import authOperation from "../../redux/auth/authOperation";
 import authSelectors from "../../redux/auth/authSelectors";
@@ -9,14 +10,23 @@ const UserMenu = () => {
   const dispatch = useDispatch();
 
   const onHandleClick = () => {
-    dispatch(authOperation.logOutOperation())
+    dispatch(authOperation.logOutOperation());
   };
   return (
     <UserMenuStyled>
-      {userName && <p className = 'userMenuText'>Welcome, {userName}</p>}
-      <button type="button" className = 'userMenuBtn' onClick={onHandleClick}>
-        log out
-      </button>
+      {userName && (
+        <>
+          <img
+            src="https://icon-library.com/images/avatar-icon-png/avatar-icon-png-12.jpg"
+            alt="userPhoto"
+          />
+          <p className="userMenuText">{userName}</p>
+        </>
+      )}
+
+      <Button variant="light" type="button" onClick={onHandleClick}>
+        logOut
+      </Button>
     </UserMenuStyled>
   );
 };

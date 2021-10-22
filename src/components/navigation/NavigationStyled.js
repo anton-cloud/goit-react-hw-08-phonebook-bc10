@@ -6,6 +6,7 @@ export const NavigationContainer = styled.nav`
     margin: 0;
     padding: 0;
     list-style: none;
+    align-items: center;
   }
 
   .navItem:not(:last-child) {
@@ -16,9 +17,19 @@ export const NavigationContainer = styled.nav`
     text-decoration: none;
     font-weight: 700;
     color: white;
+  /* &:hover {
+  } */
   }
 
+
+
+
   .navLinkActive {
-    color: aqua;
+    color: #00BFFF;
+  }
+
+  img {
+    width: 40px;
+    
   }
 `;

@@ -1,14 +1,14 @@
 import { lazy } from "react";
 
 export const mainRoutes = [
-  // {
-  //   name: "Home",
-  //   path: '/',
-  //   component:lazy(() => import('../pages/HomePage' /* webpackChunkName: "Homepage" */)),
-  //   exact: true,
-  //   private: false,
-  //   restricted: false,
-  // },
+  {
+    name: "Home",
+    path: '/',
+    component:lazy(() => import('../pages/homePage/HomePage' /* webpackChunkName: "Homepage" */)),
+    exact: true,
+    private: false,
+    restricted: false,
+  },
   {
     name: "Contacts",
     path: '/contacts',

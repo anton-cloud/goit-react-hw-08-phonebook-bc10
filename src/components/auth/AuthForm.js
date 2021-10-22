@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Form, Button } from "react-bootstrap";
 import { useLocation } from "react-router-dom";
 import { AuthFormStyled } from "./AuthFormStyled";
 
@@ -37,41 +38,55 @@ const AuthForm = ({ register, login }) => {
 
   return (
     <AuthFormStyled onSubmit={onHandleSubmit}>
-      {location.pathname === "/register" && (
-        <label className="authFormLabel">
-          Name  
-          <input
-            type="text"
-            className="authFormInput"
-            name="name"
+      <Form onSubmit={onHandleSubmit}>
+        {location.pathname === "/register" && (
+          <Form.Group className="mb-3" >
+            <Form.Label>Name</Form.Label>
+            <Form.Control
+              type="name"
+              placeholder="Enter your name"
+              name="name"
+              onChange={onHandleChange}
+              value={name}
+              autoComplete="on"
+            />
+            <Form.Text className="text-muted">
+              We'll never share your name with anyone else.
+            </Form.Text>
+          </Form.Group>
+        )}
+
+        <Form.Group className="mb-3" >
+          <Form.Label>Email address</Form.Label>
+          <Form.Control
+            type="email"
+            placeholder="Enter email"
+            name="email"
             onChange={onHandleChange}
-            value={name}
+            value={email}
+            autoComplete="on"
           />
-        </label>
-      )}
-      <label className="authFormLabel">
-        Email
-        <input
-          type="email"
-          className="authFormInput"
-          name="email"
-          onChange={onHandleChange}
-          value={email}
-        />
-      </label>
-      <label className="authFormLabel">
-        Password
-        <input
-          type="password"
-          className="authFormInput"
-          name="password"
-          onChange={onHandleChange}
-          value={password}
-        />
-      </label>
-      <button className="authFormBtn" type="submit">
-        {location.pathname === "/register" ? "Register" : "Login"}
-      </button>
+          <Form.Text className="text-muted">
+            We'll never share your email with anyone else.
+          </Form.Text>
+        </Form.Group>
+
+        <Form.Group className="mb-3" >
+          <Form.Label>Password</Form.Label>
+          <Form.Control
+            type="password"
+            placeholder="Password"
+            name="password"
+            onChange={onHandleChange}
+            value={password}
+            autoComplete="on"
+          />
+        </Form.Group>
+
+        <Button variant="primary" type="submit">
+          {location.pathname === "/register" ? "Register" : "Login"}
+        </Button>
+      </Form>
     </AuthFormStyled>
   );
 };

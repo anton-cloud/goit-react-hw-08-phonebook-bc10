@@ -1,10 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { ContactListStyled } from "./ContactListStyled";
+import { Button } from "react-bootstrap";
 
 const ContactList = ({ visibleContacts, deleteContact }) => {
-
-  const onHandleDelete = (e) => deleteContact(e.target.id)
+  const onHandleDelete = (e) => deleteContact(e.target.id);
 
   return (
     <ContactListStyled>
@@ -14,9 +14,18 @@ const ContactList = ({ visibleContacts, deleteContact }) => {
             <p className="text">
               {name} {number}
             </p>
-            <button type="button" id={id} onClick={onHandleDelete}>
+            {/* <button type="button" id={id} onClick={onHandleDelete}>
               delete
-            </button>
+            </button> */}
+
+            <Button
+              variant="danger"
+              type="button"
+              id={id}
+              onClick={onHandleDelete}
+            >
+              delete
+            </Button>
           </div>
         </li>
       ))}

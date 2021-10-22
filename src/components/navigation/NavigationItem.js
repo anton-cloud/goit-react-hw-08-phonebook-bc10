@@ -11,6 +11,18 @@ const NavigationItem = ({
 }) => {
   return (
     <>
+      {!isPrivate && !isRestricted && (
+        <li className="navItem">
+          <NavLink
+            to={path}
+            exact={exact}
+            className="navLink"
+            activeClassName="navLinkActive"
+          >
+            {name}
+          </NavLink>
+        </li>
+      )}
       {isPrivate && !isRestricted && isAuth && (
         <li className="navItem">
           <NavLink

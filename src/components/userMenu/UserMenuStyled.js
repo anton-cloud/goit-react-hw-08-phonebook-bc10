@@ -6,9 +6,8 @@ export const UserMenuStyled = styled.li `
 
 .userMenuText {
   padding: 0;
-  margin: 0;
-  margin-right: 10px;
-
+  margin: 0 10px 0 10px ;
   font-weight: 700;
+
 }
 `
