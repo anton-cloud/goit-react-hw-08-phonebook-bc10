@@ -9,7 +9,7 @@ import authSelectors from "../../redux/auth/authSelectors";
 
 const Navigation = ({routes = mainRoutes}) => {
 
-  const isAuth = useSelector((state) => authSelectors(state))
+  const isAuth = useSelector((state) => authSelectors.getToken(state))
 
   return (
     <NavigationContainer>
