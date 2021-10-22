@@ -20,7 +20,7 @@ const contactItemsReducer = createReducer([], {
   [fetchContactsSuccess]: (_, { payload }) => payload,
   [addContactSuccess]: (state, { payload }) => [...state, payload],
   [deleteContactSuccess]: (state, { payload }) => 
-  state.filter((contact) => contact.id !== Number(payload)),
+  state.filter((contact) => contact.id !== payload),
 });
 
 const contactErrorReducer = createReducer('',{
