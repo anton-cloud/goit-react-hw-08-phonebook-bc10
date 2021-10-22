@@ -1,12 +1,8 @@
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import contactsOperations from "../redux/contacts/contactsOperations";
-import ContactFormContainer from "./contactForm/ContactFormContainer";
-import ContactListContainer from "./contactList/ContactListContainer";
-import FilterContainer from "./filter/FilterContainer";
+import { useSelector } from "react-redux";
+import { token } from "../redux/auth/authOperation";
 import Header from "./header/Header";
 import Main from "./main/Main";
-import Section from "./section/Section";
 
 // const contactsValue = JSON.parse(window.localStorage.getItem("contacts")) || [
 //   { id: "id-1", name: "Rosie Simpson", number: "459-12-56" },
@@ -17,11 +13,11 @@ import Section from "./section/Section";
 
 const App = () => {
   
-  // const dispatch = useDispatch();
+  const tokenContact = useSelector((state) => state.auth.token)
 
-  // useEffect(() => {
-  //   dispatch(contactsOperations.fetchContacts());
-  // }, [dispatch]);
+  useEffect(() => {
+    tokenContact ? token.set(tokenContact) : token.set("")
+  }, [tokenContact]);
 
   return (
     <>

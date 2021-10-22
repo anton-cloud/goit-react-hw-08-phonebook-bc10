@@ -1,5 +1,6 @@
 import { createReducer } from "@reduxjs/toolkit";
 import { combineReducers } from "redux";
+import authActions from "../auth/authAction";
 
 import actions from "./contactsActions";
 
@@ -21,16 +22,19 @@ const contactItemsReducer = createReducer([], {
   [addContactSuccess]: (state, { payload }) => [...state, payload],
   [deleteContactSuccess]: (state, { payload }) => 
   state.filter((contact) => contact.id !== payload),
+  [authActions.logOutSuccess]:() => []
 });
 
 const contactErrorReducer = createReducer('',{
   [fetchContactsError]:(_, {payload}) => payload,
   [addContactError]:(_, {payload}) => payload,
   [deleteContactError]:(_, {payload}) => payload,
+  [authActions.logOutSuccess]:() => ''
 })
 
 const filterReducer = createReducer("", {
   [changeFilter]: (_, { payload }) => payload,
+  [authActions.logOutSuccess]:() => ''
 });
 
 const loadingReducer = createReducer(false, {
@@ -43,6 +47,7 @@ const loadingReducer = createReducer(false, {
   [deleteContactRequest]: () => true,
   [deleteContactSuccess]: () => false,
   [deleteContactError]: () => false,
+  [authActions.logOutSuccess]:() => false
 });
 
 

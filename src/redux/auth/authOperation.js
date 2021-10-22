@@ -5,7 +5,7 @@ import action from "./authAction";
 
 const baseURL = `https://connections-api.herokuapp.com`;
 
-const token = {
+export const token = {
   set(token) {
     axios.defaults.headers.common.Authorization = `Bearer ${token}`
   },

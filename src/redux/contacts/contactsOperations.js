@@ -1,11 +1,18 @@
 import axios from "axios";
+import { token } from "../auth/authOperation";
 import actions from "./contactsActions";
 const baseUrl = `https://connections-api.herokuapp.com`;
 
-const fetchContacts = () => async (dispatch) => {
+
+
+const fetchContacts = () => async (dispatch, getState) => {
+  // const tokenContact = getState().auth.token
   dispatch(actions.fetchContactsRequest);
   try {
+    
+// token.set(tokenContact)
     const result = await axios.get(`${baseUrl}/contacts`);
+
     dispatch(actions.fetchContactsSuccess(result.data));
   } catch (error) {
     dispatch(actions.fetchContactsError(error.message));
