@@ -4,10 +4,12 @@ import { NavigationContainer } from "./NavigationStyled";
 import UserMenu from "../userMenu/UserMenu";
 import NavigationItem from "./NavigationItem";
 import { useSelector } from "react-redux";
+import authSelectors from "../../redux/auth/authSelectors";
+
 
 const Navigation = ({routes = mainRoutes}) => {
 
-  const isAuth = useSelector((state) => state.auth.token)
+  const isAuth = useSelector((state) => authSelectors(state))
 
   return (
     <NavigationContainer>

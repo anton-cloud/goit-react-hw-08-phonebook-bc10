@@ -1,13 +1,15 @@
 import React, {Suspense} from "react";
 import { useSelector } from "react-redux";
 import { Switch } from "react-router-dom";
+import authSelectors from "../../redux/auth/authSelectors";
 import mainRoutes from "../routes/mainRoutes";
 import PrivateRoute from "../routes/PrivateRoute";
 import PublicRoute from "../routes/PublicRoute";
 import { MainContainer } from "./MainStyled";
 
+
 const Main = () => {
-  const isAuth = useSelector((state) => state.auth.token)
+  const isAuth = useSelector((state) => authSelectors.getToken(state))
   return (
     <MainContainer>
       <Suspense fallback={<h2>...Loading</h2>}>
